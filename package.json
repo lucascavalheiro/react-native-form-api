@@ -1,0 +1,26 @@
+{
+  "name": "react-native-form-api",
+  "version": "1.0.0",
+  "description": "A react-native library",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucascavalheiro/react-native-form-api.git"
+  },
+  "keywords": [
+    "react-native",
+    "form"
+  ],
+  "author": "Lucas Cavalheiro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lucascavalheiro/react-native-form-api/issues"
+  },
+  "homepage": "https://github.com/lucascavalheiro/react-native-form-api#readme",
+  "dependencies": {
+    "rimraf": "^2.6.2"
+  }
+}
