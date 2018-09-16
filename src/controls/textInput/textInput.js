@@ -1,25 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, Text, View } from 'react-native';
+import BaseInput from './baseInput';
 
 class FormTextInput extends Component {
-  static propTypes = {
-
-  };
+  static propTypes = {};
 
   render() {
-    const { text } = this.props;
-
-    return (
-      <View>
-        <Text style={{ color: 'blue' }}>{this.props.text}Form text input</Text>
-      </View>
-    );
+    return <BaseInput {...this.props} />;
   }
 }
 
-const styles = StyleSheet.create({
-
-});
+const styles = StyleSheet.create({});
 
 export default FormTextInput;
