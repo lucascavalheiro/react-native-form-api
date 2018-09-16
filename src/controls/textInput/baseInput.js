@@ -8,8 +8,7 @@ import { scale } from '../../styles/common';
 
 class BaseInput extends PureComponent {
   static propTypes = {
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    buttonImage: PropTypes.string,
+    buttonImage: PropTypes.any,
     keyboardType: PropTypes.string,
     disabled: PropTypes.bool,
     showClearButton: PropTypes.bool,
@@ -47,7 +46,6 @@ class BaseInput extends PureComponent {
       <View>
         <TextInput
           {...this.props}
-          value={value}
           disabled={disabled}
           keyboardType={keyboardType}
           underlineColorAndroid={'transparent'}
