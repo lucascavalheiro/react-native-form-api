@@ -9,7 +9,10 @@
   "scripts": {
     "clean": "rimraf dist",
     "test": "jest",
-    "build": "babel ./index.js ./src/**/*.js ./src/**/**/*.js -d ./dist"
+    "copy": "cp -rf ./dist ../FormApi/app",
+    "build": "babel ./index.js -d ./dist && babel ./src -d ./dist/src",
+    "debug": "rm -rf ../FormApi/app/dist && mkdir -p ../FormApi/app/dist && cp -rf ./src ../FormApi/app/dist/src && cp ./index.js ../FormApi/app/dist",
+    "local": "npm run debug"
   },
   "repository": {
     "type": "git",
@@ -27,6 +30,8 @@
   "homepage": "https://github.com/lucascavalheiro/react-native-form-api#readme",
   "dependencies": {
     "prop-types": "^15.6.2",
+    "react": "16.3.1",
+    "react-native": "0.55.4",
     "react-native-masked-text": "1.9.1"
   },
   "devDependencies": {
@@ -38,8 +43,6 @@
     "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "^7.11.1",
     "prettier": "^1.14.2",
-    "react": "16.3.1",
-    "react-native": "0.55.4",
     "react-test-renderer": "16.3.1",
     "rimraf": "2.6.2"
   }
