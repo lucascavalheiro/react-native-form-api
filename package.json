@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "description": "A react-native library",
   "main": "index.js",
+  "files": [
+    "/dist"
+  ],
   "scripts": {
-    "test": "jest"
+    "clean": "rimraf dist",
+    "test": "jest",
+    "build": "babel ./index.js ./src/**/*.js ./src/**/**/*.js -d ./dist"
   },
   "repository": {
     "type": "git",
@@ -21,6 +26,18 @@
   },
   "homepage": "https://github.com/lucascavalheiro/react-native-form-api#readme",
   "dependencies": {
-    "rimraf": "^2.6.2"
+    "prop-types": "^15.6.2",
+    "react-native-masked-text": "1.9.1"
+  },
+  "devDependencies": {
+    "babel-cli": "6.26.0",
+    "babel-eslint": "^9.0.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-react-native": "4.0.1",
+    "eslint-plugin-react": "^7.11.1",
+    "react-test-renderer": "16.3.1",
+    "react": "16.3.1",
+    "react-native": "0.55.4",
+    "rimraf": "2.6.2"
   }
 }
