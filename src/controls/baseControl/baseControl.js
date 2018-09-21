@@ -4,6 +4,8 @@ import { View, StyleSheet } from 'react-native';
 import Label from '../label/label';
 import { scale } from '../../styles/common';
 import * as Controller from './baseControl.controller';
+import { isNullOrEmpty } from '../../utils/string';
+import ErrorMessage from './errorMessage';
 
 const BaseControl = ComposedComponent =>
   class extends PureComponent {
@@ -13,6 +15,11 @@ const BaseControl = ComposedComponent =>
     static propTypes = {
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       label: PropTypes.string.isRequired,
+      required: PropTypes.bool,
+      /* VALIDATION */
+      errorMessage: PropTypes.string,
+      emptyMessage: PropTypes.string,
+      /* END VALIDATION */
       onChange: PropTypes.func,
     };
 
@@ -22,6 +29,8 @@ const BaseControl = ComposedComponent =>
       isLabelFloating: false,
       isFocused: false,
       value: '',
+      hasError: false,
+      errorMessage: '',
     };
 
     componentDidMount() {
@@ -50,7 +59,8 @@ const BaseControl = ComposedComponent =>
 
     handleOnChange = value => {
       const { onChange } = this.props;
-      this.setState({ value: value }, () => {
+      // update value and reset any error
+      this.setState({ value: value, hasError: false, errorMessage: '' }, () => {
         if (typeof onChange === 'function') {
           onChange(value);
         }
@@ -80,8 +90,34 @@ const BaseControl = ComposedComponent =>
       this.handleOnPress();
     };
 
+    /**
+     * Validate if the value is valid, not empty and the validation rule is valid.
+     * @return true if it's all valid, false if there's something wrong.
+     */
     validate = () => {
-      console.log('validate');
+      const { required } = this.props;
+      const { value } = this.state;
+      let hasError = false;
+      let errorMessage = '';
+
+      if (required && Controller.isEmpty(value)) {
+        hasError = true;
+        errorMessage = 'O campo não pode estar vazio';
+      }
+
+      if (typeof this.controlRef.validator === 'function') {
+        const validator = this.controlRef.validator(value);
+        if (validator && validator.error) {
+          hasError = true;
+          errorMessage = validator.error;
+        }
+      }
+
+      this.setState({
+        hasError,
+        errorMessage,
+      });
+      return hasError;
     };
 
     /* FORM METHODS */
@@ -108,23 +144,27 @@ const BaseControl = ComposedComponent =>
 
     render() {
       const { label } = this.props;
+      const { hasError, errorMessage, value, isLabelFloating } = this.state;
 
       return (
         <View style={Style.container}>
           <ComposedComponent
             {...this.props}
-            value={this.state.value}
-            validate={this.validate}
+            value={value}
+            hasError={hasError}
             onChange={this.handleOnChange}
             onFocus={this.handleOnFocus}
             onBlur={this.handleOnBlur}
+            onValidate={this.validate}
             ref={this.forwardRef}
           />
           <Label
             text={label}
-            isFloating={this.state.isLabelFloating}
+            isFloating={isLabelFloating}
             onPress={this.onLabelPress}
+            hasError={hasError}
           />
+          <ErrorMessage message={errorMessage} />
         </View>
       );
     }
@@ -132,7 +172,7 @@ const BaseControl = ComposedComponent =>
 
 const Style = StyleSheet.create({
   container: {
-    height: scale(72),
+    minHeight: scale(72),
     paddingTop: scale(24),
   },
 });

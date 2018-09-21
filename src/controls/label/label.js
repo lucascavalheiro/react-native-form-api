@@ -1,16 +1,19 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Animated, Easing, StyleSheet } from 'react-native';
-import { COLOR, scale } from '../../styles/common';
+import { COLOR, FONT, scale } from '../../styles/common';
 
 const SLIDE_UP_POSISTION = scale(4);
 const SLIDE_DOWN_POSISTION = scale(38);
 const SLIDE_LEFT_POSITION = scale(8);
+const FONT_SIZE_SMALL = FONT.SIZE_12;
+const FONT_SIZE_BIG = FONT.SIZE_14;
 
 class Label extends PureComponent {
   static propTypes = {
     isFloating: PropTypes.bool,
     text: PropTypes.string.isRequired,
+    hasError: PropTypes.bool,
     style: PropTypes.any,
     onPress: PropTypes.func,
   };
@@ -44,16 +47,11 @@ class Label extends PureComponent {
       toValue: isFloating ? 1 : 0,
       duration: 300,
       easing: Easing.inOut(Easing.ease),
-      useNativeDriver: true,
     }).start();
   };
 
-  getLabelSize = isFloating => {
-    return isFloating ? scale(12) : scale(14);
-  };
-
   render() {
-    const { text, isFloating } = this.props;
+    const { text, isFloating, hasError } = this.props;
     const { animation } = this.state;
     const top = animation.interpolate({
       inputRange: [0, 1],
@@ -63,15 +61,20 @@ class Label extends PureComponent {
       inputRange: [0, 1],
       outputRange: [SLIDE_LEFT_POSITION, 0],
     });
+    const fontSize = animation.interpolate({
+      inputRange: [0, 1],
+      outputRange: [FONT_SIZE_BIG, FONT_SIZE_SMALL],
+    });
 
     return (
       <Animated.Text
         style={[
-          styles.label,
+          Style.label,
           {
             transform: [{ translateY: top }, { translateX: left }],
-            fontSize: this.getLabelSize(isFloating),
+            fontSize: fontSize,
           },
+          hasError && Style.error,
         ]}
         onPress={this.onPress}
       >
@@ -81,7 +84,7 @@ class Label extends PureComponent {
   }
 }
 
-const styles = StyleSheet.create({
+const Style = StyleSheet.create({
   label: {
     position: 'absolute',
     color: COLOR.GRAY,
@@ -89,6 +92,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     transform: [{ translateY: SLIDE_UP_POSISTION }],
     zIndex: 9,
+  },
+  error: {
+    color: COLOR.RED,
   },
 });
 
