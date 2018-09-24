@@ -54,6 +54,8 @@ const BaseControl = ComposedComponent =>
 
       // check if the value was updated outside this component
       if (prevProps.value !== value && value !== this.state.value) {
+        // reset error message
+        this.clearValidation();
         // update control's value with outside modified value
         this.setState({ value });
       }
