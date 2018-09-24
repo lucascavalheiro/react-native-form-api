@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View, StyleSheet, Text } from 'react-native';
-import { COLOR, FONT, scale } from '../../styles/common';
+import { COLOR, FONT, scale } from '../../../styles/common';
 
 class Header extends Component {
+  propTypes = {
+    style: PropTypes.any,
+  };
+
   render() {
-    const { title } = this.props;
+    const { title, style } = this.props;
     return (
       <View>
         <View style={Style.container}>
           <View style={Style.textContainer}>
-            <Text style={Style.text}>{title}</Text>
+            <Text style={[Style.text, style]}>{title}</Text>
           </View>
         </View>
       </View>
@@ -42,5 +46,6 @@ const Style = StyleSheet.create({
   },
   text: {
     fontSize: FONT.SIZE_14,
+    fontWeight: 'bold',
   },
 });

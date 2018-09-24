@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { View, StyleSheet, Image, TextInput } from 'react-native';
-import { FONT, COLOR, scale } from '../../styles/common';
-import SEACH_ICON from '../../assets/images/search-gray.png';
+import { FONT, COLOR, scale } from '../../../styles/common';
+import SEACH_ICON from '../../../assets/images/search-gray.png';
 
 class SearchInput extends PureComponent {
   static propTypes = {

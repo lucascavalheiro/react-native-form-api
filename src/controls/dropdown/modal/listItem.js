@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, Image, Text, TouchableOpacity } from 'react-native';
-import { COLOR, FONT, scale } from '../../styles/common';
-import CHECK_ICON from '../../assets/images/check.png';
+import { COLOR, FONT, scale } from '../../../styles/common';
+import CHECK_ICON from '../../../assets/images/check.png';
 
 export const ITEM_HEIGHT = scale(48);
 
@@ -12,6 +12,7 @@ class ListItem extends PureComponent {
     isLastItem: PropTypes.bool.isRequired,
     isSelected: PropTypes.bool.isRequired,
     onSelect: PropTypes.func,
+    style: PropTypes.any,
   };
 
   onPress = () => {
@@ -22,14 +23,14 @@ class ListItem extends PureComponent {
   };
 
   render() {
-    const { item, isLastItem, isSelected } = this.props;
+    const { item, isLastItem, isSelected, style } = this.props;
 
     return (
       <TouchableOpacity
         onPress={this.onPress}
         style={[Style.container, !isLastItem && Style.separator]}
       >
-        <Text style={Style.text}>{item}</Text>
+        <Text style={[Style.text, style]}>{item}</Text>
         {isSelected && <Image style={Style.selectedIcon} source={CHECK_ICON} />}
       </TouchableOpacity>
     );
@@ -54,7 +55,8 @@ const Style = StyleSheet.create({
     height: scale(32),
   },
   text: {
-    fontSize: FONT.SIZE_12,
+    // weight: medium
+    fontSize: FONT.SIZE_14,
   },
 });
 

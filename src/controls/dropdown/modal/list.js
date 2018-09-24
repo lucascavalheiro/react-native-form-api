@@ -8,6 +8,7 @@ class List extends PureComponent {
     selectedItem: PropTypes.string,
     list: PropTypes.array.isRequired,
     onSelect: PropTypes.func,
+    listItemStyle: PropTypes.any,
   };
 
   flatList = null;
@@ -40,13 +41,16 @@ class List extends PureComponent {
   };
 
   renderItem = ({ item, index }) => {
+    const { list, listItemStyle, onSelect } = this.props;
+
     return (
       <ListItem
         key={index}
         item={item}
-        isLastItem={index === (this.props.list || []).length - 1}
+        isLastItem={index === (list || []).length - 1}
         isSelected={this.isItemSelected(item)}
-        onSelect={this.props.onSelect}
+        onSelect={onSelect}
+        style={listItemStyle}
       />
     );
   };

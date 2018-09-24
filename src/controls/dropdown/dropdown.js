@@ -3,7 +3,7 @@ import { View, StyleSheet, Keyboard } from 'react-native';
 import PropTypes from 'prop-types';
 
 import BaseControl from '../baseControl/baseControl';
-import ModalDropdown from './modal';
+import ModalDropdown from './modal/modal';
 import { COLOR, scale } from '../../styles/common';
 import DropdownInput from './dropdownInput';
 
@@ -21,6 +21,9 @@ class Dropdown extends PureComponent {
     placeholderSearch: PropTypes.string,
     onChange: PropTypes.func,
     valueStyle: PropTypes.any, // style that changes the string inside dropdown
+    listItemStyle: PropTypes.any, // style that changes the text of each item's list
+    modalCancelStyle: PropTypes.any, // style that changes de cancel button inside the modal
+    modalHeaderStyle: PropTypes.any, // style that changes the header inside the modal
   };
 
   static defaultProps = {
@@ -64,6 +67,9 @@ class Dropdown extends PureComponent {
       hasError,
       hideFilter,
       label,
+      listItemStyle,
+      modalCancelStyle,
+      modalHeaderStyle,
       style,
       placeholderSearch,
       value,
@@ -90,6 +96,9 @@ class Dropdown extends PureComponent {
           visible={this.state.isVisible}
           hideFilter={hideFilter}
           placeholderSearch={placeholderSearch}
+          cancelStyle={modalCancelStyle}
+          headerStyle={modalHeaderStyle}
+          listItemStyle={listItemStyle}
         />
       </View>
     );

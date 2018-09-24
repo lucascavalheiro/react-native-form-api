@@ -1,11 +1,11 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import Header from './header';
 import Modal from 'react-native-modal';
+import Header from './header';
 import SearchInput from './searchInput';
 import List from './list';
-import { FONT, COLOR, scale } from '../../styles/common';
+import { FONT, COLOR, scale } from '../../../styles/common';
 
 class ModalDropdown extends PureComponent {
   static propTypes = {
@@ -14,6 +14,9 @@ class ModalDropdown extends PureComponent {
     title: PropTypes.string,
     hideFilter: PropTypes.bool,
     placehelderSearch: PropTypes.string,
+    cancelStyle: PropTypes.any,
+    headerStyle: PropTypes.any,
+    listItemStyle: PropTypes.any,
     onChage: PropTypes.func,
     onClose: PropTypes.func,
   };
@@ -73,6 +76,9 @@ class ModalDropdown extends PureComponent {
       selectedItem,
       hideFilter,
       placehelderSearch,
+      headerStyle,
+      cancelStyle,
+      listItemStyle,
     } = this.props;
     const containerHeightStyle = this.getContainerHeightStyle();
 
@@ -90,7 +96,7 @@ class ModalDropdown extends PureComponent {
             onLayout={this.onContainerLayout}
             style={[Style.container, containerHeightStyle]}
           >
-            <Header title={title} />
+            <Header title={title} style={headerStyle} />
             {!hideFilter && (
               <SearchInput
                 onChange={this.filterList}
@@ -102,6 +108,7 @@ class ModalDropdown extends PureComponent {
               selectedItem={selectedItem}
               ref={el => (this.flatList = el)}
               onSelect={onChange}
+              style={listItemStyle}
             />
             <View style={Style.footer}>
               <TouchableOpacity
@@ -113,7 +120,7 @@ class ModalDropdown extends PureComponent {
                   right: scale(16),
                 }}
               >
-                <Text style={[Style.cancel]}>Cancelar</Text>
+                <Text style={[Style.cancel, cancelStyle]}>Cancelar</Text>
               </TouchableOpacity>
             </View>
           </View>
