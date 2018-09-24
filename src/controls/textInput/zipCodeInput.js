@@ -1,14 +1,10 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import BaseInput from './baseInput';
 
-class CpfInput extends PureComponent {
+class ZipCodeInput extends PureComponent {
   static propTypes = {};
-
-  state = {
-    isPasswordVisible: false,
-  };
 
   ref = {};
 
@@ -25,8 +21,8 @@ class CpfInput extends PureComponent {
     return (
       <BaseInput
         {...this.props}
-        type={'cpf'}
-        maxLength={14}
+        type={'zip-code'}
+        maxLength={9}
         keyboardType={'numeric'}
         validator={this.validator}
         inputRef={c => (this.ref = c)}
@@ -37,4 +33,4 @@ class CpfInput extends PureComponent {
 
 const Style = StyleSheet.create({});
 
-export default CpfInput;
+export default ZipCodeInput;
