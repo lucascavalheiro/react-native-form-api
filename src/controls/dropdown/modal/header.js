@@ -4,7 +4,7 @@ import { View, StyleSheet, Text } from 'react-native';
 import { COLOR, FONT, scale } from '../../../styles/common';
 
 class Header extends Component {
-  propTypes = {
+  static propTypes = {
     style: PropTypes.any,
   };
 

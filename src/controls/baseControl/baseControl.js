@@ -107,7 +107,7 @@ const BaseControl = ComposedComponent =>
         errorMessage = 'O campo não pode estar vazio';
       }
 
-      if (typeof this.controlRef.validator === 'function') {
+      if (!hasError && typeof this.controlRef.validator === 'function') {
         const validator = this.controlRef.validator(value);
         if (validator && validator.error) {
           hasError = true;

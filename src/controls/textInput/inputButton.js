@@ -43,8 +43,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   image: {
-    width: scale(21),
-    height: scale(21),
+    height: scale(13),
     alignSelf: 'center',
   },
 });

@@ -5,6 +5,8 @@ import { TextInputMask } from 'react-native-masked-text';
 import BaseControl from '../baseControl/baseControl';
 import InputButton from './inputButton';
 import { COLOR, scale } from '../../styles/common';
+import { isNullOrEmpty } from '../../utils/string';
+import ClearButton from './clearButton';
 
 class BaseInput extends PureComponent {
   static propTypes = {
@@ -13,15 +15,16 @@ class BaseInput extends PureComponent {
     disabled: PropTypes.bool,
     type: PropTypes.string,
     options: PropTypes.object,
-    useMask: PropTypes.bool,
     showClearButton: PropTypes.bool,
     onButtonPress: PropTypes.func,
     onChange: PropTypes.func,
     style: PropTypes.any,
+    inputRef: PropTypes.func,
   };
 
   static defaultProps = {
     useMask: false,
+    showClearButton: true,
   };
 
   onButtonPress = () => {
@@ -50,21 +53,33 @@ class BaseInput extends PureComponent {
     return { success: true };
   };
 
+  clearValue = () => {
+    this.props.onChange('');
+  };
+
+  renderButton = () => {
+    const { buttonImage, showClearButton } = this.props;
+    if (buttonImage) {
+      return <InputButton image={buttonImage} onPress={this.onButtonPress} />;
+    } else if (showClearButton) {
+      return <ClearButton onPress={this.clearValue} />;
+    }
+  };
+
   render() {
     const {
       disabled,
       keyboardType,
       onBlur,
       onFocus,
-      buttonImage,
       style,
-      type,
       options,
-      useMask,
+      type,
       hasError,
+      inputRef,
     } = this.props;
 
-    const Input = useMask ? TextInputMask : TextInput;
+    const Input = isNullOrEmpty(type) ? TextInput : TextInputMask;
 
     return (
       <View>
@@ -81,8 +96,9 @@ class BaseInput extends PureComponent {
           onChangeText={this.onChange}
           onChange={() => {}}
           style={[Style.input, style, hasError && Style.error]}
+          ref={inputRef}
         />
-        <InputButton image={buttonImage} onPress={this.onButtonPress} />
+        {this.renderButton()}
       </View>
     );
   }
@@ -92,6 +108,8 @@ const Style = StyleSheet.create({
   input: {
     height: scale(48),
     paddingHorizontal: scale(24),
+    backgroundColor: COLOR.WHITE,
+    borderRadius: scale(30),
   },
   error: {
     borderWidth: scale(1),
