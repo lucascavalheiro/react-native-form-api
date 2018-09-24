@@ -11,6 +11,7 @@ export const COLOR = {
   GRAY_5: '#F0F0F0',
   GRAY_42: '#929292',
   WHITE: '#FFFFFF',
+  TEXT: 'rgba(0, 0, 0, 0.68)',
 };
 
 export const LINE_SPACING = 1.3;
