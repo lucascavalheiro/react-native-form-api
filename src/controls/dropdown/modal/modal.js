@@ -108,7 +108,7 @@ class ModalDropdown extends PureComponent {
               selectedItem={selectedItem}
               ref={el => (this.flatList = el)}
               onSelect={onChange}
-              style={listItemStyle}
+              listItemStyle={listItemStyle}
             />
             <View style={Style.footer}>
               <TouchableOpacity

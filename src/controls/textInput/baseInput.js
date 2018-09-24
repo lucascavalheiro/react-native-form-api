@@ -126,6 +126,7 @@ const Style = StyleSheet.create({
     paddingHorizontal: scale(24),
     backgroundColor: COLOR.WHITE,
     borderRadius: scale(30),
+    color: COLOR.TEXT,
   },
   error: {
     borderWidth: scale(1),

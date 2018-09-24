@@ -55,6 +55,7 @@ const Style = StyleSheet.create({
   },
   value: {
     fontSize: FONT.SIZE_14,
+    color: COLOR.TEXT,
   },
   dropdown: {
     position: 'absolute',

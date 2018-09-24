@@ -57,6 +57,7 @@ const Style = StyleSheet.create({
   text: {
     // weight: medium
     fontSize: FONT.SIZE_14,
+    color: COLOR.TEXT,
   },
 });
 
