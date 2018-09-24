@@ -12,10 +12,6 @@ class PhoneInput extends PureComponent {
 
   ref = {};
 
-  togglePassword = () => {
-    this.setState({ isPasswordVisible: !this.state.isPasswordVisible });
-  };
-
   validator = value => {
     if (this.ref && typeof this.ref.isValid === 'function') {
       if (!this.ref.isValid() || value.toString().length < 14) {
