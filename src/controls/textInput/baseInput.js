@@ -74,9 +74,20 @@ class BaseInput extends PureComponent {
   };
 
   renderButton = () => {
-    const { buttonImage, showClearButton, value } = this.props;
+    const {
+      buttonImage,
+      showClearButton,
+      value,
+      buttonImageStyle,
+    } = this.props;
     if (buttonImage) {
-      return <InputButton image={buttonImage} onPress={this.onButtonPress} />;
+      return (
+        <InputButton
+          image={buttonImage}
+          onPress={this.onButtonPress}
+          imageStyle={buttonImageStyle}
+        />
+      );
     } else if (showClearButton && !isNullOrEmpty(value)) {
       return <ClearButton onPress={this.clearValue} />;
     }

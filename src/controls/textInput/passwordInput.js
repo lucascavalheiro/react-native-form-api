@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native';
 import BaseInput from './baseInput';
 import ICON_HIDE_PASSWORD from '../../assets/images/hide-password.png';
 import ICON_SHOW_PASSWORD from '../../assets/images/show-password.png';
+import { scale } from '../../styles/common';
 
 class PasswordInput extends PureComponent {
   static propTypes = {};
@@ -16,10 +17,6 @@ class PasswordInput extends PureComponent {
     this.setState({ isPasswordVisible: !this.state.isPasswordVisible });
   };
 
-  validator = value => {
-    return { success: true };
-  };
-
   render() {
     const { isPasswordVisible } = this.state;
     const icon = isPasswordVisible ? ICON_HIDE_PASSWORD : ICON_SHOW_PASSWORD;
@@ -30,12 +27,17 @@ class PasswordInput extends PureComponent {
         secureTextEntry={!isPasswordVisible}
         buttonImage={icon}
         onButtonPress={this.togglePassword}
-        validator={this.validator}
+        buttonImageStyle={Style.icon}
       />
     );
   }
 }
 
-const Style = StyleSheet.create({});
+const Style = StyleSheet.create({
+  icon: {
+    height: scale(20),
+    width: scale(20),
+  },
+});
 
 export default PasswordInput;

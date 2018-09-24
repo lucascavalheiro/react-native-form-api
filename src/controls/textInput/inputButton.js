@@ -6,6 +6,7 @@ import { scale } from '../../styles/common';
 class InputButton extends PureComponent {
   static propTypes = {
     image: PropTypes.any,
+    imageStyle: PropTypes.any,
     onPress: PropTypes.func,
   };
 
@@ -16,7 +17,7 @@ class InputButton extends PureComponent {
   };
 
   render() {
-    const { image } = this.props;
+    const { image, imageStyle } = this.props;
 
     if (!image) return null;
 
@@ -26,7 +27,11 @@ class InputButton extends PureComponent {
         style={styles.imageContainer}
         onPress={this.onPress}
       >
-        <Image style={styles.image} resizeMode={'contain'} source={image} />
+        <Image
+          style={[styles.image, imageStyle]}
+          resizeMode={'contain'}
+          source={image}
+        />
       </TouchableOpacity>
     );
   }
