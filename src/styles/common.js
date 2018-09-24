@@ -3,9 +3,13 @@ import { Dimensions } from 'react-native';
 export const COLOR = {
   RED: '#E24D5F',
   GRAY: '#929292',
+  GRAY_BACKGROUND: '#f8f8f8',
   GRAY_DARK: '#4f4f4f',
   GRAY_LIGHT: '#adadad',
   GRAY_LIGHTER: '#e0e0e0',
+  GRAY_5: '#F0F0F0',
+  GRAY_42: '#929292',
+  WHITE: '#FFFFFF',
 };
 
 export const LINE_SPACING = 1.3;
