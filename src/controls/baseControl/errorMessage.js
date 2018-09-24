@@ -7,6 +7,7 @@ import { COLOR, FONT, scale } from '../../styles/common';
 class ErrorMessage extends PureComponent {
   static propTypes = {
     message: PropTypes.string,
+    style: PropTypes.any,
   };
 
   state = {
@@ -43,7 +44,7 @@ class ErrorMessage extends PureComponent {
   };
 
   render() {
-    const { message } = this.props;
+    const { message, style } = this.props;
     const { animation, visible } = this.state;
 
     if (!visible) {
@@ -52,7 +53,7 @@ class ErrorMessage extends PureComponent {
 
     return (
       <Animated.View style={[Style.container, { opacity: animation }]}>
-        <Text style={Style.message}>{message}</Text>
+        <Text style={[Style.message, style]}>{message}</Text>
       </Animated.View>
     );
   }
@@ -66,7 +67,7 @@ const Style = StyleSheet.create({
   message: {
     color: COLOR.RED,
     textAlign: 'right',
-    fontSize: FONT.size_12,
+    fontSize: FONT.SIZE_12,
   },
 });
 

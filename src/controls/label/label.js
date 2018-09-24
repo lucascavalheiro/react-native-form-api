@@ -51,7 +51,7 @@ class Label extends PureComponent {
   };
 
   render() {
-    const { text, isFloating, hasError } = this.props;
+    const { text, hasError, style } = this.props;
     const { animation } = this.state;
     const top = animation.interpolate({
       inputRange: [0, 1],
@@ -75,6 +75,7 @@ class Label extends PureComponent {
             fontSize: fontSize,
           },
           hasError && Style.error,
+          style,
         ]}
         onPress={this.onPress}
       >

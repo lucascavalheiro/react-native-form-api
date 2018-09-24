@@ -20,6 +20,8 @@ const BaseControl = ComposedComponent =>
       errorMessage: PropTypes.string,
       emptyMessage: PropTypes.string,
       /* END VALIDATION */
+      errorStyle: PropTypes.any,
+      labelStyle: PropTypes.any,
       onChange: PropTypes.func,
     };
 
@@ -84,8 +86,7 @@ const BaseControl = ComposedComponent =>
 
     handleOnPress = () => {
       this.clearValidation();
-      typeof this.controlRef.onPress === 'function' &&
-        this.controlRef.onPress();
+      typeof this.controlRef.focus === 'function' && this.controlRef.focus();
     };
 
     onLabelPress = () => {
@@ -119,7 +120,7 @@ const BaseControl = ComposedComponent =>
         hasError,
         errorMessage,
       });
-      return hasError;
+      return !hasError;
     };
 
     /**
@@ -152,7 +153,7 @@ const BaseControl = ComposedComponent =>
     };
 
     render() {
-      const { label } = this.props;
+      const { label, errorStyle, labelStyle } = this.props;
       const { hasError, errorMessage, value, isLabelFloating } = this.state;
 
       return (
@@ -173,8 +174,9 @@ const BaseControl = ComposedComponent =>
             isFloating={isLabelFloating}
             onPress={this.onLabelPress}
             hasError={hasError}
+            style={labelStyle}
           />
-          <ErrorMessage message={errorMessage} />
+          <ErrorMessage message={errorMessage} style={errorStyle} />
         </View>
       );
     }
