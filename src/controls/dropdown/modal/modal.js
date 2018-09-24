@@ -155,6 +155,7 @@ const Style = StyleSheet.create({
   cancel: {
     color: COLOR.BLUE,
     fontSize: FONT.SIZE_12,
+    fontWeight: 'bold',
   },
 });
 
