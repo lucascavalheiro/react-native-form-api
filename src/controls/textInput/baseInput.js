@@ -94,6 +94,7 @@ const Style = StyleSheet.create({
     paddingHorizontal: scale(24),
   },
   error: {
+    borderWidth: scale(1),
     borderColor: COLOR.RED,
   },
 });

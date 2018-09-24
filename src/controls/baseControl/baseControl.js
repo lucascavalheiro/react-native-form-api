@@ -59,8 +59,8 @@ const BaseControl = ComposedComponent =>
 
     handleOnChange = value => {
       const { onChange } = this.props;
-      // update value and reset any error
-      this.setState({ value: value, hasError: false, errorMessage: '' }, () => {
+      // update value
+      this.setState({ value: value }, () => {
         if (typeof onChange === 'function') {
           onChange(value);
         }
@@ -68,6 +68,7 @@ const BaseControl = ComposedComponent =>
     };
 
     handleOnFocus = () => {
+      this.clearValidation();
       this.setState({
         isFocused: true,
         isLabelFloating: Controller.isLabelFloating(this.state.value, true),
@@ -82,6 +83,7 @@ const BaseControl = ComposedComponent =>
     };
 
     handleOnPress = () => {
+      this.clearValidation();
       typeof this.controlRef.onPress === 'function' &&
         this.controlRef.onPress();
     };
@@ -120,6 +122,13 @@ const BaseControl = ComposedComponent =>
       return hasError;
     };
 
+    /**
+     * Reset validation errors
+     */
+    clearValidation = () => {
+      this.setState({ hasError: false, errorMessage: '' });
+    };
+
     /* FORM METHODS */
     /**
      * Get contorl's value.
@@ -152,6 +161,7 @@ const BaseControl = ComposedComponent =>
             {...this.props}
             value={value}
             hasError={hasError}
+            clearValidation={this.clearValidation}
             onChange={this.handleOnChange}
             onFocus={this.handleOnFocus}
             onBlur={this.handleOnBlur}
