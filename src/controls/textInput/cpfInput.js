@@ -18,7 +18,7 @@ class CpfInput extends PureComponent {
 
   validator = value => {
     if (this.ref && typeof this.ref.isValid === 'function') {
-      if (!this.ref.isValid() || value.length === 14) {
+      if (!this.ref.isValid()) {
         return { error: 'CPF inválido!' };
       }
     }
