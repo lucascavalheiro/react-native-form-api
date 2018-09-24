@@ -41,6 +41,14 @@ class BaseInput extends PureComponent {
     }
   };
 
+  focus = () => {
+    if (typeof this.inputRef.getElement === 'function') {
+      this.inputRef.getElement().focus();
+    } else {
+      this.inputRef.focus();
+    }
+  };
+
   validate = () => {
     return this.props.onValidate();
   };
@@ -57,11 +65,19 @@ class BaseInput extends PureComponent {
     this.props.onChange('');
   };
 
+  forwardRef = ref => {
+    this.inputRef = ref;
+    const { inputRef } = this.props;
+    if (typeof inputRef === 'function') {
+      inputRef(ref);
+    }
+  };
+
   renderButton = () => {
-    const { buttonImage, showClearButton } = this.props;
+    const { buttonImage, showClearButton, value } = this.props;
     if (buttonImage) {
       return <InputButton image={buttonImage} onPress={this.onButtonPress} />;
-    } else if (showClearButton) {
+    } else if (showClearButton && !isNullOrEmpty(value)) {
       return <ClearButton onPress={this.clearValue} />;
     }
   };
@@ -76,7 +92,6 @@ class BaseInput extends PureComponent {
       options,
       type,
       hasError,
-      inputRef,
     } = this.props;
 
     const Input = isNullOrEmpty(type) ? TextInput : TextInputMask;
@@ -96,7 +111,8 @@ class BaseInput extends PureComponent {
           onChangeText={this.onChange}
           onChange={() => {}}
           style={[Style.input, style, hasError && Style.error]}
-          ref={inputRef}
+          ref={this.forwardRef}
+          onPress={this.focus}
         />
         {this.renderButton()}
       </View>

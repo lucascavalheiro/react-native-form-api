@@ -54,7 +54,7 @@ const Style = StyleSheet.create({
     zIndex: 1,
   },
   value: {
-    fontSize: FONT.SIZE_12,
+    fontSize: FONT.SIZE_14,
   },
   dropdown: {
     position: 'absolute',

@@ -53,6 +53,10 @@ class Dropdown extends PureComponent {
     });
   };
 
+  focus = () => {
+    this.showPopover();
+  };
+
   showPopover = () => {
     this.props.clearValidation();
     Keyboard.dismiss();
