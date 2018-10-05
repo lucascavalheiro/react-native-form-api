@@ -17,6 +17,7 @@ class ModalDropdown extends PureComponent {
     cancelStyle: PropTypes.any,
     headerStyle: PropTypes.any,
     listItemStyle: PropTypes.any,
+    searchStyle: PropTypes.any,
     onChage: PropTypes.func,
     onClose: PropTypes.func,
   };
@@ -79,6 +80,7 @@ class ModalDropdown extends PureComponent {
       headerStyle,
       cancelStyle,
       listItemStyle,
+      searchStyle,
     } = this.props;
     const containerHeightStyle = this.getContainerHeightStyle();
 
@@ -101,6 +103,7 @@ class ModalDropdown extends PureComponent {
               <SearchInput
                 onChange={this.filterList}
                 placeholder={placehelderSearch}
+                style={searchStyle}
               />
             )}
             <List

@@ -8,11 +8,12 @@ class SearchInput extends PureComponent {
   static propTypes = {
     value: PropTypes.string,
     placeholder: PropTypes.string,
+    style: PropTypes.any,
     onChange: PropTypes.func,
   };
 
   render() {
-    const { onChange, placeholder } = this.props;
+    const { onChange, placeholder, style } = this.props;
     return (
       <View style={Style.container}>
         <Image source={SEACH_ICON} style={Style.searchIcon} />
@@ -20,7 +21,7 @@ class SearchInput extends PureComponent {
           onChangeText={onChange}
           placeholder={placeholder || 'Buscar'}
           containerStyle={Style.inputContainer}
-          style={Style.input}
+          style={[Style.input, style]}
         />
       </View>
     );
@@ -53,6 +54,7 @@ const Style = StyleSheet.create({
     marginTop: scale(6),
     paddingLeft: scale(8),
     backgroundColor: COLOR.GRAY_5,
+    fontSize: FONT.SIZE_14,
   },
 });
 

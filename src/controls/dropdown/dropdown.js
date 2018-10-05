@@ -24,6 +24,7 @@ class Dropdown extends PureComponent {
     listItemStyle: PropTypes.any, // style that changes the text of each item's list
     modalCancelStyle: PropTypes.any, // style that changes de cancel button inside the modal
     modalHeaderStyle: PropTypes.any, // style that changes the header inside the modal
+    modalSearchStyle: PropTypes.any, // style that changes the search input inside the modal
   };
 
   static defaultProps = {
@@ -74,6 +75,7 @@ class Dropdown extends PureComponent {
       listItemStyle,
       modalCancelStyle,
       modalHeaderStyle,
+      modalSearchStyle,
       style,
       placeholderSearch,
       value,
@@ -103,6 +105,7 @@ class Dropdown extends PureComponent {
           cancelStyle={modalCancelStyle}
           headerStyle={modalHeaderStyle}
           listItemStyle={listItemStyle}
+          searchStyle={modalSearchStyle}
         />
       </View>
     );

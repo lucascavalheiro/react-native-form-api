@@ -28,7 +28,7 @@ class DropdownInput extends PureComponent {
         <TouchableOpacity
           activeOpacity={0.4}
           style={Style.dropdown}
-          onPress={this.showPopover}
+          onPress={onPress}
         >
           <Image
             style={Style.dropdownIcon}
