@@ -7,6 +7,7 @@ import FormDateInput from './src/controls/textInput/dateInput';
 import FormEmailInput from './src/controls/textInput/emailInput';
 import FormPhoneInput from './src/controls/textInput/phoneInput';
 import FormZipCodeInput from './src/controls/textInput/zipCodeInput';
+import FormAgeInput from './src/controls/textInput/ageInput';
 
 module.exports.Form = Form;
 module.exports.FormDropdown = FormDropdown;
@@ -17,3 +18,4 @@ module.exports.FormDateInput = FormDateInput;
 module.exports.FormEmailInput = FormEmailInput;
 module.exports.FormPhoneInput = FormPhoneInput;
 module.exports.FormZipCodeInput = FormZipCodeInput;
+module.exports.FormAgeInput = FormAgeInput;
