@@ -151,7 +151,7 @@ const BaseControl = ComposedComponent =>
 
     /* FORM METHODS */
     /**
-     * Get contorl's value.
+     * Get control's value.
      * @returns current control's value.
      */
     getValue = () => {
