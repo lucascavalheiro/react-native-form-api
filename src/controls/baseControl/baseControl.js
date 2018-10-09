@@ -19,6 +19,7 @@ const BaseControl = ComposedComponent =>
       /* VALIDATION */
       errorMessage: PropTypes.string,
       emptyMessage: PropTypes.string,
+      showEmptyMessage: PropTypes.bool,
       /* END VALIDATION */
       errorStyle: PropTypes.any,
       labelStyle: PropTypes.any,
@@ -33,6 +34,7 @@ const BaseControl = ComposedComponent =>
       value: '',
       hasError: false,
       errorMessage: '',
+      showEmptyMessage: false,
     };
 
     componentDidMount() {
@@ -59,10 +61,23 @@ const BaseControl = ComposedComponent =>
         // update control's value with outside modified value
         this.setState({ value });
       }
+
+      // check if a custom error was added outside this component
+      if (
+        !isNullOrEmpty(this.props.errorMessage) &&
+        prevProps.errorMessage !== this.props.errorMessage
+      ) {
+        this.setState({
+          hasError: true,
+          errorMessage: this.props.errorMessage,
+        });
+      }
     }
 
     handleOnChange = value => {
       const { onChange } = this.props;
+      // reset error message
+      this.clearValidation();
       // update value
       this.setState({ value: value }, () => {
         if (typeof onChange === 'function') {
@@ -100,14 +115,16 @@ const BaseControl = ComposedComponent =>
      * @return true if it's all valid, false if there's something wrong.
      */
     validate = () => {
-      const { required } = this.props;
+      const { required, showEmptyMessage } = this.props;
       const { value } = this.state;
       let hasError = false;
       let errorMessage = '';
 
       if (required && Controller.isEmpty(value)) {
         hasError = true;
-        errorMessage = 'O campo não pode estar vazio';
+        if (showEmptyMessage) {
+          errorMessage = 'O campo não pode estar vazio';
+        }
       }
 
       if (!hasError && typeof this.controlRef.validator === 'function') {
@@ -156,7 +173,7 @@ const BaseControl = ComposedComponent =>
 
     render() {
       const { label, errorStyle, labelStyle } = this.props;
-      const { hasError, errorMessage, value, isLabelFloating } = this.state;
+      const { errorMessage, hasError, isLabelFloating, value } = this.state;
 
       return (
         <View style={Style.container}>
