@@ -28,7 +28,7 @@ class PhoneInput extends PureComponent {
         validator={this.validator}
         maxLength={15}
         type={'cel-phone'}
-        keyboardType={'numeric'}
+        keyboardType={'phone-pad'}
         inputRef={c => (this.ref = c)}
       />
     );

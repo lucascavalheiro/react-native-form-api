@@ -20,7 +20,12 @@ class EmailInput extends PureComponent {
 
   render() {
     return (
-      <BaseInput {...this.props} validator={this.validator} maxLength={60} />
+      <BaseInput
+        {...this.props}
+        validator={this.validator}
+        maxLength={60}
+        keyboardType={'email-address'}
+      />
     );
   }
 }
