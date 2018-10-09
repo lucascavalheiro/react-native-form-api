@@ -20,6 +20,7 @@ class BaseInput extends PureComponent {
     onChange: PropTypes.func,
     style: PropTypes.any,
     inputRef: PropTypes.func,
+    isButtonVisible: PropTypes.func,
   };
 
   static defaultProps = {
@@ -79,8 +80,15 @@ class BaseInput extends PureComponent {
       showClearButton,
       value,
       buttonImageStyle,
+      isButtonVisible,
     } = this.props;
     if (buttonImage) {
+      if (typeof isButtonVisible === 'function') {
+        const isVisible = isButtonVisible(value);
+        if (isVisible === false) {
+          return;
+        }
+      }
       return (
         <InputButton
           image={buttonImage}
