@@ -25,6 +25,7 @@ class EmailInput extends PureComponent {
         validator={this.validator}
         maxLength={60}
         keyboardType={'email-address'}
+        autoCapitalize={'none'}
       />
     );
   }
