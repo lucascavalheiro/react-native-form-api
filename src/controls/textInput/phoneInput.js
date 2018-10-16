@@ -14,7 +14,9 @@ class PhoneInput extends PureComponent {
 
   validator = value => {
     if (this.ref && typeof this.ref.isValid === 'function') {
-      if (!this.ref.isValid() || value.toString().length < 14) {
+      const hasMask = value.indexOf('(') > -1 && value.indexOf(')') > -1;
+      const minValidLength = hasMask ? 14 : 10;
+      if (!this.ref.isValid() || value.toString().length < minValidLength) {
         return { error: 'Telefone inválido!' };
       }
     }
