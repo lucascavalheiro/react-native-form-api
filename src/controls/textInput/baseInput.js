@@ -4,7 +4,7 @@ import { View, StyleSheet, TextInput } from 'react-native';
 import { TextInputMask } from 'react-native-masked-text';
 import BaseControl from '../baseControl/baseControl';
 import InputButton from './inputButton';
-import { COLOR, scale } from '../../styles/common';
+import { COLOR, FONT, scale } from '../../styles/common';
 import { isNullOrEmpty } from '../../utils/string';
 import ClearButton from './clearButton';
 
@@ -146,6 +146,7 @@ const Style = StyleSheet.create({
     backgroundColor: COLOR.WHITE,
     borderRadius: scale(30),
     color: COLOR.TEXT,
+    fontSize: FONT.SIZE_14,
   },
   error: {
     borderWidth: scale(1),
