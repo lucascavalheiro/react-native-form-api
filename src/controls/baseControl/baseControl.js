@@ -6,8 +6,9 @@ import { scale } from '../../styles/common';
 import * as Controller from './baseControl.controller';
 import { isNullOrEmpty } from '../../utils/string';
 import ErrorMessage from './errorMessage';
+import { FormContextConsumer } from '../form/form.context';
 
-const BaseControl = ComposedComponent =>
+const BaseControl = (ComposedComponent, formContext) =>
   class extends PureComponent {
     static displayName =
       ComposedComponent.displayName || ComposedComponent.name;
@@ -38,6 +39,11 @@ const BaseControl = ComposedComponent =>
     };
 
     componentDidMount() {
+      // init form context
+      if (formContext) {
+        formContext.subscribe(this.props.name, this);
+      }
+
       this.setState({
         isLabelFloating: Controller.isLabelFloating(this.state.value, false),
         // set initial value
@@ -71,6 +77,13 @@ const BaseControl = ComposedComponent =>
           hasError: true,
           errorMessage: this.props.errorMessage,
         });
+      }
+    }
+
+    componentWillUnmount() {
+      // remove control from form context
+      if (formContext) {
+        formContext.unsubscribe(this.props.name);
       }
     }
 
@@ -201,6 +214,33 @@ const BaseControl = ComposedComponent =>
     }
   };
 
+/**
+ * Create a form wrapper for this base control.
+ * It'll make possible to form (via context API) call methods
+ * from this base control instance.
+ *
+ * The base control instance can call/use form context too.
+ * @param {component} ComposedComponent
+ * @return a form wrapper.
+ */
+const FormContextWrapper = ComposedComponent => {
+  return class ContextWrapper extends PureComponent {
+    render() {
+      return (
+        <FormContextConsumer>
+          {formContext => {
+            const WrappedComponent = BaseControl(
+              ComposedComponent,
+              formContext,
+            );
+            return <WrappedComponent {...this.props} />;
+          }}
+        </FormContextConsumer>
+      );
+    }
+  };
+};
+
 const Style = StyleSheet.create({
   container: {
     minHeight: scale(72),
@@ -208,4 +248,4 @@ const Style = StyleSheet.create({
   },
 });
 
-export default BaseControl;
+export default FormContextWrapper;
