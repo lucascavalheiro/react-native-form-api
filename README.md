@@ -35,11 +35,7 @@ class Page extends Component {
     return (
       <View>
         <Form ref={c => (this.form = c)}>
-          <FormTextInput
-            label={'Enter your name'}
-            name={'nameInput'}
-            required={true}
-          />
+          <FormTextInput label={'Enter your name'} name={'nameInput'} />
         </Form>
         <Button title="Submit" color="#841584" onPress={this.onSubmitForm} />
       </View>
