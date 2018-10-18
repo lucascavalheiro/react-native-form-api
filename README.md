@@ -2,7 +2,7 @@
 
 A form lib that uses [React Context API](https://reactjs.org/docs/context.html) to access children's values and generate an object with key and values.
 
-Using this approach you don't need to keep field's value on you component's state or tracking then on redux store. Each form components has it's own state and validation.
+Using this approach you don't need to keep field's value on you component's state or tracking then on redux store. Each form component has it's own state and validation.
 
 # Installing
 
