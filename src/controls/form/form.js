@@ -62,7 +62,7 @@ class FormProvider extends Component {
   /**
    * Get values from form's controls.
    * @return a object with control's values. E.g:
-   * { inputName: 'value' }
+   * { inputName: 'current fields value' }
    */
   submit = () => {
     const { onSubmit } = this.props;

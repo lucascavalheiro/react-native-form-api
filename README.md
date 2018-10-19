@@ -24,9 +24,9 @@ Using this approach you don't need to keep field's value on you component's stat
   - ### [TextInput](#section-text-input)
   - ### [ZipcodeInput](#section-zipcode-input)
 
-# <a name="section-instaling">Installing</a>
+# <a name="section-instaling"> Installing </a>
 
-# <a name="section-usage">Usage</a>
+# <a name="section-usage"> Usage </a>
 
 ```js
 import React, { Component } from 'react';
@@ -69,6 +69,39 @@ export default Page;
 # <a name="section-docs"> Docs </a>
 
 ## <a name="section-form"> Form </a>
+
+### Description
+
+A container component that handles submit event and (soon) field's validation.
+
+### Props
+
+| Name     | Type | Default value | Description                                                                                                                  |
+| -------- | ---- | ------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| onSubmit | func | -             | Event triggered after `submit` is called. <br/> Form will call `onSubmit` method passing an object with values as parameter. |
+
+### Methods
+
+| Name   | Params | Return                                                                             | Description                      |
+| ------ | ------ | ---------------------------------------------------------------------------------- | -------------------------------- |
+| submit | -      | A object with control's values.<br/>Example: { inputName: 'current fields value' } | Get values from form's controls. |
+
+### Usage example
+
+```js
+  ...
+  handleSubmit = () => {
+    this.form.submit();
+  }
+
+  ...
+
+  <Form
+    onSubmit={(values) => { console.log(values) }}
+    ref={component => { this.form = component }}
+  />
+  ...
+```
 
 ## <a name="section-base-control"> BaseControl </a>
 
