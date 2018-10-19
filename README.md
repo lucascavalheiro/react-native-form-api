@@ -105,26 +105,273 @@ A container component that handles submit event and (soon) field's validation.
 
 ## <a name="section-base-control"> BaseControl </a>
 
+### Description
+
+### Props
+
+| Name | Type | Default value | Description |
+| ---- | ---- | ------------- | ----------- |
+| -    | -    | -             | -           |
+
+### Methods
+
+| Name | Params | Return | Description |
+| ---- | ------ | ------ | ----------- |
+| -    | -      | -      | -           |
+
+### Usage example
+
+```js
+```
+
 ## <a name="section-label"> Label </a>
+
+### Description
+
+### Props
+
+| Name | Type | Default value | Description |
+| ---- | ---- | ------------- | ----------- |
+| -    | -    | -             | -           |
+
+### Methods
+
+| Name | Params | Return | Description |
+| ---- | ------ | ------ | ----------- |
+| -    | -      | -      | -           |
+
+### Usage example
+
+```js
+```
 
 ## <a name="section-dropdown"> Dropdown </a>
 
+### Description
+
+### Props
+
+| Name | Type | Default value | Description |
+| ---- | ---- | ------------- | ----------- |
+| -    | -    | -             | -           |
+
+### Methods
+
+| Name | Params | Return | Description |
+| ---- | ------ | ------ | ----------- |
+| -    | -      | -      | -           |
+
+### Usage example
+
+```js
+```
+
 ## <a name="section-base-input"> BaseInput </a>
+
+### Description
+
+### Props
+
+| Name | Type | Default value | Description |
+| ---- | ---- | ------------- | ----------- |
+| -    | -    | -             | -           |
+
+### Methods
+
+| Name | Params | Return | Description |
+| ---- | ------ | ------ | ----------- |
+| -    | -      | -      | -           |
+
+### Usage example
+
+```js
+```
 
 ## <a name="section-age-input"> AgeInput </a>
 
+### Description
+
+### Props
+
+| Name | Type | Default value | Description |
+| ---- | ---- | ------------- | ----------- |
+| -    | -    | -             | -           |
+
+### Methods
+
+| Name | Params | Return | Description |
+| ---- | ------ | ------ | ----------- |
+| -    | -      | -      | -           |
+
+### Usage example
+
+```js
+```
+
 ## <a name="section-cpf-input"> CpfInput </a>
+
+### Description
+
+### Props
+
+| Name | Type | Default value | Description |
+| ---- | ---- | ------------- | ----------- |
+| -    | -    | -             | -           |
+
+### Methods
+
+| Name | Params | Return | Description |
+| ---- | ------ | ------ | ----------- |
+| -    | -      | -      | -           |
+
+### Usage example
+
+```js
+```
 
 ## <a name="section-date-input"> DateInput </a>
 
+### Description
+
+### Props
+
+| Name | Type | Default value | Description |
+| ---- | ---- | ------------- | ----------- |
+| -    | -    | -             | -           |
+
+### Methods
+
+| Name | Params | Return | Description |
+| ---- | ------ | ------ | ----------- |
+| -    | -      | -      | -           |
+
+### Usage example
+
+```js
+```
+
 ## <a name="section-email-input"> EmailInput </a>
+
+### Description
+
+### Props
+
+| Name | Type | Default value | Description |
+| ---- | ---- | ------------- | ----------- |
+| -    | -    | -             | -           |
+
+### Methods
+
+| Name | Params | Return | Description |
+| ---- | ------ | ------ | ----------- |
+| -    | -      | -      | -           |
+
+### Usage example
+
+```js
+```
 
 ## <a name="section-input-button"> InputButton </a>
 
+### Description
+
+### Props
+
+| Name | Type | Default value | Description |
+| ---- | ---- | ------------- | ----------- |
+| -    | -    | -             | -           |
+
+### Methods
+
+| Name | Params | Return | Description |
+| ---- | ------ | ------ | ----------- |
+| -    | -      | -      | -           |
+
+### Usage example
+
+```js
+```
+
 ## <a name="section-password-input"> PasswordInput </a>
+
+### Description
+
+### Props
+
+| Name | Type | Default value | Description |
+| ---- | ---- | ------------- | ----------- |
+| -    | -    | -             | -           |
+
+### Methods
+
+| Name | Params | Return | Description |
+| ---- | ------ | ------ | ----------- |
+| -    | -      | -      | -           |
+
+### Usage example
+
+```js
+```
 
 ## <a name="section-phone-input"> PhoneInput </a>
 
+### Description
+
+### Props
+
+| Name | Type | Default value | Description |
+| ---- | ---- | ------------- | ----------- |
+| -    | -    | -             | -           |
+
+### Methods
+
+| Name | Params | Return | Description |
+| ---- | ------ | ------ | ----------- |
+| -    | -      | -      | -           |
+
+### Usage example
+
+```js
+```
+
 ## <a name="section-text-input"> TextInput </a>
 
+### Description
+
+### Props
+
+| Name | Type | Default value | Description |
+| ---- | ---- | ------------- | ----------- |
+| -    | -    | -             | -           |
+
+### Methods
+
+| Name | Params | Return | Description |
+| ---- | ------ | ------ | ----------- |
+| -    | -      | -      | -           |
+
+### Usage example
+
+```js
+```
+
 ## <a name="section-zipcode-input"> ZipcodeInput </a>
+
+### Description
+
+### Props
+
+| Name | Type | Default value | Description |
+| ---- | ---- | ------------- | ----------- |
+| -    | -    | -             | -           |
+
+### Methods
+
+| Name | Params | Return | Description |
+| ---- | ------ | ------ | ----------- |
+| -    | -      | -      | -           |
+
+### Usage example
+
+```js
+```
