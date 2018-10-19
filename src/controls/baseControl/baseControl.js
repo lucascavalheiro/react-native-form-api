@@ -25,6 +25,12 @@ const BaseControl = (ComposedComponent, formContext) =>
       errorStyle: PropTypes.any,
       labelStyle: PropTypes.any,
       onChange: PropTypes.func,
+      reference: PropTypes.any,
+    };
+
+    static defaultProps = {
+      required: false,
+      showEmptyMessage: false,
     };
 
     controlRef = {};
@@ -35,7 +41,6 @@ const BaseControl = (ComposedComponent, formContext) =>
       value: '',
       hasError: false,
       errorMessage: '',
-      showEmptyMessage: false,
     };
 
     componentDidMount() {
@@ -128,7 +133,7 @@ const BaseControl = (ComposedComponent, formContext) =>
      * @return true if it's all valid, false if there's something wrong.
      */
     validate = () => {
-      const { required, showEmptyMessage } = this.props;
+      const { required, showEmptyMessage, emptyMessage } = this.props;
       const { value } = this.state;
       let hasError = false;
       let errorMessage = '';
@@ -136,7 +141,7 @@ const BaseControl = (ComposedComponent, formContext) =>
       if (required && Controller.isEmpty(value)) {
         hasError = true;
         if (showEmptyMessage) {
-          errorMessage = 'O campo não pode estar vazio';
+          errorMessage = emptyMessage || 'O campo não pode estar vazio';
         }
       }
 

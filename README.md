@@ -76,9 +76,9 @@ A container component that handles submit event and (soon) field's validation.
 
 ### Props
 
-| Name     | Type | Default value | Description                                                                                                                  |
-| -------- | ---- | ------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| onSubmit | func | -             | Event triggered after `submit` is called. <br/> Form will call `onSubmit` method passing an object with values as parameter. |
+| Name     | Type | Required | Default value | Description                                                                                                                  |
+| -------- | ---- | -------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| onSubmit | func | false    | -             | Event triggered after `submit` is called. <br/> Form will call `onSubmit` method passing an object with values as parameter. |
 
 ### Methods
 
@@ -97,7 +97,7 @@ A container component that handles submit event and (soon) field's validation.
   ...
 
   <Form
-    onSubmit={(values) => { console.log(values) }}
+    onSubmit={values => { console.log(values) }}
     ref={component => { this.form = component }}
   />
   ...
@@ -107,17 +107,28 @@ A container component that handles submit event and (soon) field's validation.
 
 ### Description
 
+A ([HOC](https://reactjs.org/docs/higher-order-components.html)) base component for every field. Its render a Label, Field and Error Message and it's reposable for handling value changes and trigger field's validation.
+
 ### Props
 
-| Name | Type | Default value | Description |
-| ---- | ---- | ------------- | ----------- |
-| -    | -    | -             | -           |
+| Name             | Type            | Required | Default value | Description                                                                                                  |
+| ---------------- | --------------- | -------- | ------------- | ------------------------------------------------------------------------------------------------------------ |
+| value            | string / number | true     | ""            | Field's value.                                                                                               |
+| label            | string          | false    | -             | Label text.                                                                                                  |
+| required         | boolean         | false    | false         | Indicates if this control must have a value.                                                                 |
+| errorMessage     | string          | false    | -             | Custom error message. If it's have a value, a error will be displayed.                                       |
+| emptyMessage     | string          | false    | -             | Custom empty message. This message is displayed when field is validating and it's required and has no value. |
+| showEmptyMessage | boolean         | false    | false         | Indicates if a message should be displayed when this field is required and empty.                            |
+| errorStyle       | style           | false    | -             | A custom style to Error's text.                                                                              |
+| labelStyle       | style           | false    | -             | A custom style to Label's text.                                                                              |
+| onChange         | func            | false    | -             | Event triggered for every value's change. The new value is passed as parameter.                              |
+| reference        | object          | false    | -             | Should be used as `ref` prop. But, the `ref` is reserved for internal usage.                                 |
 
 ### Methods
 
-| Name | Params | Return | Description |
-| ---- | ------ | ------ | ----------- |
-| -    | -      | -      | -           |
+| Name     | Params | Return                                                    | Description                                                                 |
+| -------- | ------ | --------------------------------------------------------- | --------------------------------------------------------------------------- |
+| validate | -      | true if it's all valid, false if there's something wrong. | Validate if the value is valid, not empty and the validation rule is valid. |
 
 ### Usage example
 
@@ -130,9 +141,9 @@ A container component that handles submit event and (soon) field's validation.
 
 ### Props
 
-| Name | Type | Default value | Description |
-| ---- | ---- | ------------- | ----------- |
-| -    | -    | -             | -           |
+| Name | Type | Required | Default value | Description |
+| ---- | ---- | -------- | ------------- | ----------- |
+| -    | -    | -        | -             | -           |
 
 ### Methods
 
@@ -151,9 +162,9 @@ A container component that handles submit event and (soon) field's validation.
 
 ### Props
 
-| Name | Type | Default value | Description |
-| ---- | ---- | ------------- | ----------- |
-| -    | -    | -             | -           |
+| Name | Type | Required | Default value | Description |
+| ---- | ---- | -------- | ------------- | ----------- |
+| -    | -    | -        | -             | -           |
 
 ### Methods
 
@@ -193,9 +204,9 @@ A container component that handles submit event and (soon) field's validation.
 
 ### Props
 
-| Name | Type | Default value | Description |
-| ---- | ---- | ------------- | ----------- |
-| -    | -    | -             | -           |
+| Name | Type | Required | Default value | Description |
+| ---- | ---- | -------- | ------------- | ----------- |
+| -    | -    | -        | -             | -           |
 
 ### Methods
 
@@ -214,9 +225,9 @@ A container component that handles submit event and (soon) field's validation.
 
 ### Props
 
-| Name | Type | Default value | Description |
-| ---- | ---- | ------------- | ----------- |
-| -    | -    | -             | -           |
+| Name | Type | Required | Default value | Description |
+| ---- | ---- | -------- | ------------- | ----------- |
+| -    | -    | -        | -             | -           |
 
 ### Methods
 
@@ -235,9 +246,9 @@ A container component that handles submit event and (soon) field's validation.
 
 ### Props
 
-| Name | Type | Default value | Description |
-| ---- | ---- | ------------- | ----------- |
-| -    | -    | -             | -           |
+| Name | Type | Required | Default value | Description |
+| ---- | ---- | -------- | ------------- | ----------- |
+| -    | -    | -        | -             | -           |
 
 ### Methods
 
@@ -256,9 +267,9 @@ A container component that handles submit event and (soon) field's validation.
 
 ### Props
 
-| Name | Type | Default value | Description |
-| ---- | ---- | ------------- | ----------- |
-| -    | -    | -             | -           |
+| Name | Type | Required | Default value | Description |
+| ---- | ---- | -------- | ------------- | ----------- |
+| -    | -    | -        | -             | -           |
 
 ### Methods
 
@@ -277,9 +288,9 @@ A container component that handles submit event and (soon) field's validation.
 
 ### Props
 
-| Name | Type | Default value | Description |
-| ---- | ---- | ------------- | ----------- |
-| -    | -    | -             | -           |
+| Name | Type | Required | Default value | Description |
+| ---- | ---- | -------- | ------------- | ----------- |
+| -    | -    | -        | -             | -           |
 
 ### Methods
 
@@ -298,9 +309,9 @@ A container component that handles submit event and (soon) field's validation.
 
 ### Props
 
-| Name | Type | Default value | Description |
-| ---- | ---- | ------------- | ----------- |
-| -    | -    | -             | -           |
+| Name | Type | Required | Default value | Description |
+| ---- | ---- | -------- | ------------- | ----------- |
+| -    | -    | -        | -             | -           |
 
 ### Methods
 
@@ -319,9 +330,9 @@ A container component that handles submit event and (soon) field's validation.
 
 ### Props
 
-| Name | Type | Default value | Description |
-| ---- | ---- | ------------- | ----------- |
-| -    | -    | -             | -           |
+| Name | Type | Required | Default value | Description |
+| ---- | ---- | -------- | ------------- | ----------- |
+| -    | -    | -        | -             | -           |
 
 ### Methods
 
@@ -340,9 +351,9 @@ A container component that handles submit event and (soon) field's validation.
 
 ### Props
 
-| Name | Type | Default value | Description |
-| ---- | ---- | ------------- | ----------- |
-| -    | -    | -             | -           |
+| Name | Type | Required | Default value | Description |
+| ---- | ---- | -------- | ------------- | ----------- |
+| -    | -    | -        | -             | -           |
 
 ### Methods
 
@@ -361,9 +372,9 @@ A container component that handles submit event and (soon) field's validation.
 
 ### Props
 
-| Name | Type | Default value | Description |
-| ---- | ---- | ------------- | ----------- |
-| -    | -    | -             | -           |
+| Name | Type | Required | Default value | Description |
+| ---- | ---- | -------- | ------------- | ----------- |
+| -    | -    | -        | -             | -           |
 
 ### Methods
 
