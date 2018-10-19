@@ -4,9 +4,29 @@ A form lib that uses [React Context API](https://reactjs.org/docs/context.html) 
 
 Using this approach you don't need to keep field's value on you component's state or tracking then on redux store. Each form component has it's own state and validation.
 
-# Installing
+# Table of Contents
 
-# Usage
+- ### [Instaling](#section-instaling)
+- ### [Usage](#section-usage)
+- ### [Docs](#section-docs)
+  - ### [Form](#section-form)
+  - ### [BaseControl](#section-base-control)
+  - ### [Label](#section-label)
+  - ### [Dropdown](#section-dropdown)
+  - ### [BaseInput](#section-base-input)
+  - ### [AgeInput](#section-age-input)
+  - ### [CpfInput](#section-cpf-input)
+  - ### [DateInput](#section-date-input)
+  - ### [EmailInput](#section-email-input)
+  - ### [InputButton](#section-input-button)
+  - ### [PasswordInput](#section-password-input)
+  - ### [PhoneInput](#section-phone-input)
+  - ### [TextInput](#section-text-input)
+  - ### [ZipcodeInput](#section-zipcode-input)
+
+# <a name="section-instaling">Installing</a>
+
+# <a name="section-usage">Usage</a>
 
 ```js
 import React, { Component } from 'react';
@@ -45,3 +65,33 @@ class Page extends Component {
 
 export default Page;
 ```
+
+# <a name="section-docs"> Docs </a>
+
+## <a name="section-form"> Form </a>
+
+## <a name="section-base-control"> BaseControl </a>
+
+## <a name="section-label"> Label </a>
+
+## <a name="section-dropdown"> Dropdown </a>
+
+## <a name="section-base-input"> BaseInput </a>
+
+## <a name="section-age-input"> AgeInput </a>
+
+## <a name="section-cpf-input"> CpfInput </a>
+
+## <a name="section-date-input"> DateInput </a>
+
+## <a name="section-email-input"> EmailInput </a>
+
+## <a name="section-input-button"> InputButton </a>
+
+## <a name="section-password-input"> PasswordInput </a>
+
+## <a name="section-phone-input"> PhoneInput </a>
+
+## <a name="section-text-input"> TextInput </a>
+
+## <a name="section-zipcode-input"> ZipcodeInput </a>
