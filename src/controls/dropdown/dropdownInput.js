@@ -48,7 +48,7 @@ const Style = StyleSheet.create({
     backgroundColor: COLOR.WHITE,
     borderWidth: 1,
     paddingLeft: 20,
-    paddingRight: 15,
+    paddingRight: scale(40),
     borderRadius: scale(50),
     justifyContent: 'center',
     zIndex: 1,

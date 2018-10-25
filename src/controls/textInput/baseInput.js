@@ -142,7 +142,8 @@ class BaseInput extends PureComponent {
 const Style = StyleSheet.create({
   input: {
     height: scale(48),
-    paddingHorizontal: scale(24),
+    paddingLeft: scale(24),
+    paddingRight: scale(24),
     backgroundColor: COLOR.WHITE,
     borderRadius: scale(30),
     color: COLOR.TEXT,
