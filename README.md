@@ -335,8 +335,7 @@ render() {
   );
 }
 ```
-
-![](https://imgur.com/a/g7lnLY8)
+<img src="https://imgur.com/bB8fNeW.gif" height="500">
 
 ## <a name="section-date-input"> DateInput </a>
 
