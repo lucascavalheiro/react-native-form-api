@@ -13,7 +13,7 @@ class ModalDropdown extends PureComponent {
     list: PropTypes.array.isRequired,
     title: PropTypes.string,
     hideFilter: PropTypes.bool,
-    placehelderSearch: PropTypes.string,
+    placeholderSearch: PropTypes.string,
     cancelStyle: PropTypes.any,
     headerStyle: PropTypes.any,
     listItemStyle: PropTypes.any,
@@ -76,7 +76,7 @@ class ModalDropdown extends PureComponent {
       onChange,
       selectedItem,
       hideFilter,
-      placehelderSearch,
+      placeholderSearch,
       headerStyle,
       cancelStyle,
       listItemStyle,
@@ -102,7 +102,7 @@ class ModalDropdown extends PureComponent {
             {!hideFilter && (
               <SearchInput
                 onChange={this.filterList}
-                placeholder={placehelderSearch}
+                placeholder={placeholderSearch}
                 style={searchStyle}
               />
             )}

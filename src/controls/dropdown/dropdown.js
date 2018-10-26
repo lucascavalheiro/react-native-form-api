@@ -9,19 +9,13 @@ import DropdownInput from './dropdownInput';
 
 class Dropdown extends PureComponent {
   static propTypes = {
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    labelText: PropTypes.string,
     style: PropTypes.any,
     items: PropTypes.array,
     editable: PropTypes.bool,
-    error: PropTypes.bool,
-    errorMessage: PropTypes.string,
-    labelErrorStyle: PropTypes.any,
     hideFilter: PropTypes.bool,
     placeholderSearch: PropTypes.string,
-    onChange: PropTypes.func,
     valueStyle: PropTypes.any, // style that changes the string inside dropdown
-    listItemStyle: PropTypes.any, // style that changes the text of each item's list
+    listItemStyle: PropTypes.any, // style that changes the text of each list's item
     modalCancelStyle: PropTypes.any, // style that changes de cancel button inside the modal
     modalHeaderStyle: PropTypes.any, // style that changes the header inside the modal
     modalSearchStyle: PropTypes.any, // style that changes the search input inside the modal

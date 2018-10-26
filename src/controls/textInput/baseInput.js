@@ -11,16 +11,15 @@ import ClearButton from './clearButton';
 class BaseInput extends PureComponent {
   static propTypes = {
     buttonImage: PropTypes.any,
-    keyboardType: PropTypes.string,
-    disabled: PropTypes.bool,
-    type: PropTypes.string,
-    options: PropTypes.object,
-    showClearButton: PropTypes.bool,
+    buttonImageStyle: PropTypes.any,
+    isButtonVisible: PropTypes.func,
+    inputRef: PropTypes.func,
     onButtonPress: PropTypes.func,
     onChange: PropTypes.func,
+    options: PropTypes.object,
+    showClearButton: PropTypes.bool,
     style: PropTypes.any,
-    inputRef: PropTypes.func,
-    isButtonVisible: PropTypes.func,
+    type: PropTypes.string,
   };
 
   static defaultProps = {
@@ -102,16 +101,7 @@ class BaseInput extends PureComponent {
   };
 
   render() {
-    const {
-      disabled,
-      keyboardType,
-      onBlur,
-      onFocus,
-      style,
-      options,
-      type,
-      hasError,
-    } = this.props;
+    const { onBlur, onFocus, style, options, type, hasError } = this.props;
 
     const Input = isNullOrEmpty(type) ? TextInput : TextInputMask;
 
@@ -119,8 +109,6 @@ class BaseInput extends PureComponent {
       <View>
         <Input
           {...this.props}
-          disabled={disabled}
-          keyboardType={keyboardType}
           type={type}
           options={options}
           underlineColorAndroid={'transparent'}

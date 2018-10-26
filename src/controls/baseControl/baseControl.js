@@ -14,18 +14,16 @@ const BaseControl = (ComposedComponent, formContext) =>
       ComposedComponent.displayName || ComposedComponent.name;
 
     static propTypes = {
-      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-      label: PropTypes.string.isRequired,
-      required: PropTypes.bool,
-      /* VALIDATION */
-      errorMessage: PropTypes.string,
       emptyMessage: PropTypes.string,
-      showEmptyMessage: PropTypes.bool,
-      /* END VALIDATION */
+      errorMessage: PropTypes.string,
       errorStyle: PropTypes.any,
+      label: PropTypes.string.isRequired,
       labelStyle: PropTypes.any,
       onChange: PropTypes.func,
       reference: PropTypes.any,
+      required: PropTypes.bool,
+      showEmptyMessage: PropTypes.bool,
+      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     };
 
     static defaultProps = {

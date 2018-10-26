@@ -11,7 +11,7 @@ class ZipCodeInput extends PureComponent {
   validator = value => {
     if (this.ref && typeof this.ref.isValid === 'function') {
       if (!this.ref.isValid()) {
-        return { error: 'CPF inválido!' };
+        return { error: 'CEP inválido!' };
       }
     }
     return { success: true };
