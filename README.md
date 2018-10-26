@@ -82,9 +82,9 @@ A container component that handles submit event and (soon) field's validation.
 
 ### Methods
 
-| Name   | Params | Return                                                                             | Description                      |
-| ------ | ------ | ---------------------------------------------------------------------------------- | -------------------------------- |
-| submit | -      | A object with control's values.<br/>Example: { inputName: 'current fields value' } | Get values from form's controls. |
+| Name   | Params | Return                                                                               | Description                      |
+| ------ | ------ | ------------------------------------------------------------------------------------ | -------------------------------- |
+| submit | -      | A object with control's values.<br/>Example: `{ inputName: 'current fields value' }` | Get values from form's controls. |
 
 ### Usage example
 
@@ -232,17 +232,17 @@ A wrapper for all text inputs. This component is for internal use.
 BaseInput inherits [Base Control props](#section-base-control) and [React Native TextInput props](https://facebook.github.io/react-native/docs/textinput).
 
 
-| Name             | Type             | Required | Default value | Description                                                                                                                                     |
-| ---------------- | ---------------- | -------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| buttonImage      | `string` / image | `false`  | -             | The image source for the button that renders in the right inside the input (either a remote URL or a local file resource).                      |
-| buttonImageStyle | style            | `false`  | -             | Custom style for buttonImage component.                                                                                                         |
-| isButtonVisible  | func             | `false`  | -             | A function that should return `true` or `false` indicating if the button inside the input is visible or not.                                    |
-| inputRef         | func             | `false`  | -             | Used to foward the input's ref.                                                                                                                 |
-| onButtonPress    | func             | `false`  | -             | Event triggered when user press the buttonImage                                                                                                 |
-| options          | object           | `false`  | -             | Options applied when using custom mask. Reference for options docs could be found [here](https://github.com/benhurott/react-native-masked-text) |
-| showClearButton  | boolean          | `false`  | -             | Indicates if should show the x button that clears the input's value                                                                             |
-| style            | style            | `false`  | -             | Custom style for input.                                                                                                                         |
-| type             | `string`         | `false`  | -             | Custom mask type. (See more [here](https://github.com/benhurott/react-native-masked-text))                                                      |
+| Name             | Type               | Required | Default value | Description                                                                                                                                     |
+| ---------------- | ------------------ | -------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| buttonImage      | `string` / `image` | `false`  | -             | The image source for the button that renders in the right inside the input (either a remote URL or a local file resource).                      |
+| buttonImageStyle | `style`            | `false`  | -             | Custom style for buttonImage component.                                                                                                         |
+| isButtonVisible  | `func`             | `false`  | -             | A function that should return `true` or `false` indicating if the button inside the input is visible or not.                                    |
+| inputRef         | `func`             | `false`  | -             | Used to foward the input's ref.                                                                                                                 |
+| onButtonPress    | `func`             | `false`  | -             | Event triggered when user press the buttonImage                                                                                                 |
+| options          | `object`           | `false`  | -             | Options applied when using custom mask. Reference for options docs could be found [here](https://github.com/benhurott/react-native-masked-text) |
+| showClearButton  | `boolean`          | `false`  | -             | Indicates if should show the x button that clears the input's value                                                                             |
+| style            | `style`            | `false`  | -             | Custom style for input.                                                                                                                         |
+| type             | `string`           | `false`  | -             | Custom mask type. (See more [here](https://github.com/benhurott/react-native-masked-text))                                                      |
 
 ### Methods
 
@@ -269,9 +269,9 @@ The default result will be something like this: '10 anos';
 
 Age input inherits [Base Input props](#section-base-input).
 
-| Name     | Type   | Required | Default value | Description                                  |
-| -------- | ------ | -------- | ------------- | -------------------------------------------- |
-| ageLabel | string | false    | 'anos'        | Text that is displayed after the age number. |
+| Name     | Type     | Required | Default value | Description                                  |
+| -------- | -------- | -------- | ------------- | -------------------------------------------- |
+| ageLabel | `string` | `false`  | 'anos'        | Text that is displayed after the age number. |
 
 ### Methods
 
