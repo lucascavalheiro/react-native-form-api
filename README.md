@@ -76,9 +76,9 @@ A container component that handles submit event and (soon) field's validation.
 
 ### Props
 
-| Name     | Type | Required | Default value | Description                                                                                                                  |
-| -------- | ---- | -------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| onSubmit | func | false    | -             | Event triggered after `submit` is called. <br/> Form will call `onSubmit` method passing an object with values as parameter. |
+| Name     | Type   | Required | Default value | Description                                                                                                                  |
+| -------- | ------ | -------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| onSubmit | `func` | `false`  | -             | Event triggered after `submit` is called. <br/> Form will call `onSubmit` method passing an object with values as parameter. |
 
 ### Methods
 
@@ -111,18 +111,18 @@ A ([HOC](https://reactjs.org/docs/higher-order-components.html)) base component 
 
 ### Props
 
-| Name             | Type            | Required | Default value | Description                                                                                                  |
-| ---------------- | --------------- | -------- | ------------- | ------------------------------------------------------------------------------------------------------------ |
-| emptyMessage     | string          | false    | -             | Custom empty message. This message is displayed when field is validating and it's required and has no value. |
-| errorMessage     | string          | false    | -             | Custom error message. If it's have a value, a error will be displayed.                                       |
-| errorStyle       | style           | false    | -             | A custom style to Error's text.                                                                              |
-| label            | string          | false    | -             | Label text.                                                                                                  |
-| labelStyle       | style           | false    | -             | A custom style to Label's text.                                                                              |
-| onChange         | func            | false    | -             | Event triggered for every value's change. The new value is passed as parameter.                              |
-| reference        | object          | false    | -             | Should be used as `ref` prop. But, the `ref` is reserved for internal usage.                                 |
-| required         | boolean         | false    | false         | Indicates if this control must have a value.                                                                 |
-| showEmptyMessage | boolean         | false    | false         | Indicates if a message should be displayed when this field is required and empty.                            |
-| value            | string / number | true     | ""            | Field's value.                                                                                               |
+| Name             | Type                | Required | Default value | Description                                                                                                  |
+| ---------------- | ------------------- | -------- | ------------- | ------------------------------------------------------------------------------------------------------------ |
+| emptyMessage     | `string`            | `false`  | -             | Custom empty message. This message is displayed when field is validating and it's required and has no value. |
+| errorMessage     | `string`            | `false`  | -             | Custom error message. If it's have a value, a error will be displayed.                                       |
+| errorStyle       | `style`             | `false`  | -             | A custom style to Error's text.                                                                              |
+| label            | `string`            | `false`  | -             | Label text.                                                                                                  |
+| labelStyle       | `style`             | `false`  | -             | A custom style to Label's text.                                                                              |
+| onChange         | `func`              | `false`  | -             | Event triggered for every value's change. The new value is passed as parameter.                              |
+| reference        | `object`            | `false`  | -             | Should be used as `ref` prop. But, the `ref` is reserved for internal usage.                                 |
+| required         | `boolean`           | `false`  | `false`       | Indicates if this control must have a value.                                                                 |
+| showEmptyMessage | boolean             | `false`  | `false`       | Indicates if a message should be displayed when this field is required and empty.                            |
+| value            | `string` / `number` | `true`   | ""            | Field's value.                                                                                               |
 
 ### Methods
 
@@ -143,13 +143,13 @@ A component to render the control's label. This component is currently used only
 
 ### Props
 
-| Name       | Type    | Required | Default value | Description                                                           |
-| ---------- | ------- | -------- | ------------- | --------------------------------------------------------------------- |
-| isFloating | boolean | false    | -             | Indicates if the label is inside or outside (floating) the component. |
-| hasError   | boolean | false    | -             | If true, changes the color of the text to red.                        |
-| onPress    | func    | false    | -             | Event triggered whener the label is pressed.                          |
-| style      | style   | -        | -             | Custom style to label's text.                                         |
-| text       | string  | true     | -             | Text that is displayed as label.                                      |
+| Name       | Type      | Required | Default value | Description                                                           |
+| ---------- | --------- | -------- | ------------- | --------------------------------------------------------------------- |
+| isFloating | `boolean` | `false`  | -             | Indicates if the label is inside or outside (floating) the component. |
+| hasError   | `boolean` | `false`  | -             | If `true`, changes the color of the text to red.                      |
+| onPress    | `func`    | `false`  | -             | Event triggered whener the label is pressed.                          |
+| style      | `style`   | -        | -             | Custom style to label's text.                                         |
+| text       | `string`  | `true`   | -             | Text that is displayed as label.                                      |
 
 ### Methods
 
@@ -173,18 +173,18 @@ A dropdown list component.
 
 Dropdown inherits [Base Control props](#section-base-control).
 
-| Name              | Type    | Required | Default value | Description                                                   |
-| ----------------- | ------- | -------- | ------------- | ------------------------------------------------------------- |
-| items             | array   | false    | -             | List of string that will be displayed as options.             |
-| editable          | boolean | false    | -             | Indicates if the value could be changed.                      |
-| hideFilter        | boolean | false    | false         | Show or hide the filter field to search items on dropdown.    |
-| listItemStyle     | style   | false    | -             | Custom style that changes the text of each list's item.       |
-| modalCancelStyle  | style   | false    | -             | Custom style that changes de cancel button inside the modal.  |
-| modalHeaderStyle  | style   | false    | -             | Custom style that changes the header inside the modal .       |
-| modalSearchStyle  | style   | false    | -             | Custom style that changes the search input inside the modal . |
-| placeholderSearch | string  | false    | -             | Custom text for filter input placeholder                      |
-| style             | style   | false    | -             | Custom style for dropdown container.                          |
-| valueStyle        | style   | false    | -             | Custom style that changes the string with selected value.     |
+| Name              | Type      | Required | Default value | Description                                                   |
+| ----------------- | --------- | -------- | ------------- | ------------------------------------------------------------- |
+| items             | `array`   | `false`  | -             | List of string that will be displayed as options.             |
+| editable          | `boolean` | `false`  | -             | Indicates if the value could be changed.                      |
+| hideFilter        | `boolean` | `false`  | `false`       | Show or hide the filter field to search items on dropdown.    |
+| listItemStyle     | `style`   | `false`  | -             | Custom style that changes the text of each list's item.       |
+| modalCancelStyle  | `style`   | `false`  | -             | Custom style that changes de cancel button inside the modal.  |
+| modalHeaderStyle  | `style`   | `false`  | -             | Custom style that changes the header inside the modal .       |
+| modalSearchStyle  | `style`   | `false`  | -             | Custom style that changes the search input inside the modal . |
+| placeholderSearch | `string`  | `false`  | -             | Custom text for filter input placeholder                      |
+| style             | `style`   | `false`  | -             | Custom style for dropdown container.                          |
+| valueStyle        | `style`   | `false`  | -             | Custom style that changes the string with selected value.     |
 
 ### Methods
 
@@ -232,17 +232,17 @@ A wrapper for all text inputs. This component is for internal use.
 BaseInput inherits [Base Control props](#section-base-control) and [React Native TextInput props](https://facebook.github.io/react-native/docs/textinput).
 
 
-| Name             | Type            | Required | Default value | Description                                                                                                                                     |
-| ---------------- | --------------- | -------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| buttonImage      | string or image | false    | -             | The image source for the button that renders in the right inside the input (either a remote URL or a local file resource).                      |
-| buttonImageStyle | style           | false    | -             | Custom style for buttonImage component.                                                                                                         |
-| isButtonVisible  | func            | false    | -             | A function that should return 'true' or 'false' indicating if the button inside the input is visible or not.                                    |
-| inputRef         | func            | false    | -             | Used to foward the input's ref.                                                                                                                 |
-| onButtonPress    | func            | false    | -             | Event triggered when user press the buttonImage                                                                                                 |
-| options          | object          | false    | -             | Options applied when using custom mask. Reference for options docs could be found [here](https://github.com/benhurott/react-native-masked-text) |
-| showClearButton  | boolean         | false    | -             | Indicates if should show the x button that clears the input's value                                                                             |
-| style            | style           | false    | -             | Custom style for input.                                                                                                                         |
-| type             | string          | false    | -             | Custom mask type. (See more [here](https://github.com/benhurott/react-native-masked-text))                                                      |
+| Name             | Type             | Required | Default value | Description                                                                                                                                     |
+| ---------------- | ---------------- | -------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| buttonImage      | `string` / image | `false`  | -             | The image source for the button that renders in the right inside the input (either a remote URL or a local file resource).                      |
+| buttonImageStyle | style            | `false`  | -             | Custom style for buttonImage component.                                                                                                         |
+| isButtonVisible  | func             | `false`  | -             | A function that should return `true` or `false` indicating if the button inside the input is visible or not.                                    |
+| inputRef         | func             | `false`  | -             | Used to foward the input's ref.                                                                                                                 |
+| onButtonPress    | func             | `false`  | -             | Event triggered when user press the buttonImage                                                                                                 |
+| options          | object           | `false`  | -             | Options applied when using custom mask. Reference for options docs could be found [here](https://github.com/benhurott/react-native-masked-text) |
+| showClearButton  | boolean          | `false`  | -             | Indicates if should show the x button that clears the input's value                                                                             |
+| style            | style            | `false`  | -             | Custom style for input.                                                                                                                         |
+| type             | `string`         | `false`  | -             | Custom mask type. (See more [here](https://github.com/benhurott/react-native-masked-text))                                                      |
 
 ### Methods
 
@@ -335,6 +335,8 @@ render() {
   );
 }
 ```
+
+![](https://imgur.com/a/g7lnLY8)
 
 ## <a name="section-date-input"> DateInput </a>
 
