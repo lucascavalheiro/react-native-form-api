@@ -231,7 +231,6 @@ A wrapper for all text inputs. This component is for internal use.
 
 BaseInput inherits [Base Control props](#section-base-control) and [React Native TextInput props](https://facebook.github.io/react-native/docs/textinput).
 
-    type: PropTypes.string,
 
 | Name             | Type            | Required | Default value | Description                                                                                                                                     |
 | ---------------- | --------------- | -------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
