@@ -323,6 +323,8 @@ CPF input inherits [Base Input methods](#section-base-input).
 
 ### Usage example
 
+<img src="https://imgur.com/bB8fNeW.gif" height="500" align="right">
+
 ```js
 ...
 render() {
@@ -335,7 +337,19 @@ render() {
   );
 }
 ```
-<img src="https://imgur.com/bB8fNeW.gif" height="500">
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
 ## <a name="section-date-input"> DateInput </a>
 
