@@ -43,7 +43,7 @@ const BaseControl = (ComposedComponent, formContext) =>
 
     componentDidMount() {
       // init form context
-      if (formContext) {
+      if (formContext && typeof formContext.subscribe === 'function') {
         formContext.subscribe(this.props.name, this);
       }
 
@@ -85,7 +85,7 @@ const BaseControl = (ComposedComponent, formContext) =>
 
     componentWillUnmount() {
       // remove control from form context
-      if (formContext) {
+      if (formContext && typeof formContext.unsubscribe === 'function') {
         formContext.unsubscribe(this.props.name);
       }
     }
